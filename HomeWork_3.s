@@ -18,7 +18,7 @@ in:
         li	t5, 0		 # Кол-во четных чисел
         li	t6, 0		 # Кол-во нечетных чисел
         li      s2, 2147483647  #max sum
-	li      s3, -2147483648	 #min sum
+	li      s6, -2147483648	 #min sum
 	li	s5, 2		 #Четность
         la 	a0, prompt      # Сообщение о вводе числа элементов
         li 	a7, 4           # Системный вызов №4 - вывод на консоль
@@ -58,12 +58,13 @@ out:
         lw      t4 (t0)
         rem	s3, t4, s5
         
-        beqz    s3, evenPlus
-        bgtz	 s3, oddPlus
-        
         checkOverFlow:
         bltz t4, negativeOverFlow
         bgtz t4, positiveOverFlow
+        
+        checkEvenOrAOdd:
+        beqz    s3, evenPlus
+        bgtz	 s3, oddPlus
         continue:
         add     t1, t1, t4	 # Суммируем значения 
         addi    t0 t0 4
@@ -79,19 +80,19 @@ out:
 
         evenPlus:
         	addi t5, t5, 1
-        	j checkOverFlow
+        	j continue
         oddPlus:
         	addi t6, t6, 1
-        	j checkOverFlow
+        	j continue
 
 negativeOverFlow:
-	sub s4, s3, t4
+	sub s4, s6, t4
 	blt t1, s4, sumOver
-	j continue
+	j checkEvenOrAOdd
 positiveOverFlow:
 	sub s4, s2, t4
 	blt s4, t1, sumOver
-        j continue
+        j checkEvenOrAOdd
 
 sumOver:
         la 	 a0, summaBreak
@@ -123,4 +124,3 @@ evenAndOdd:
         ecall
         li      a7 10           # Остановка программы
         ecall
-
