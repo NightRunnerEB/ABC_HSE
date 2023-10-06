@@ -15,7 +15,7 @@ message:    .asciz  "The maximum argument is "
 # Подпрограмма вычисления факториала
 fact:   
 	addi    sp sp -4        ## Запасаем ячейку в стеке
-  sw      ra (sp)         ## Сохраняем ra
+        sw      ra (sp)         ## Сохраняем ra
         
   addi	s2, s2, 1
 	mulhu	t1, s1, s2
