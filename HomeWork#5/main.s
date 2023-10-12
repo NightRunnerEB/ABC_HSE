@@ -3,7 +3,7 @@
 n:	.word	0
 array:  .space  40
 
-.include "macrolib.s"
+.include "macrolib.inc"
 
 .global main n array
 
