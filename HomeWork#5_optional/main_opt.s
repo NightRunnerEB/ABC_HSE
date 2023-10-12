@@ -26,13 +26,11 @@ main:
         la	t4 n		 	# Адрес n в t4
         sw	t3 (t4)		 	# Загрузка n в память на хранение
         
-        la      t0 array        	# Указатель элемента массива
-        
         print_str("Введите значения:\n")
         
-        callFillArray			#Вызов подпрограммы заполнения массива
+        callFillArray (array)			#Вызов подпрограммы заполнения массива
         
-        callCalculateSum		#Вызов подпрограммы суммирования элементов массива
+        callCalculateSum (array)		#Вызов подпрограммы суммирования элементов массива
         
         mv t5 a0
         print_str ("Сумма = ")
@@ -46,4 +44,3 @@ main:
 fail:
         print_str ("incorrect n!\n")
         exit
-
