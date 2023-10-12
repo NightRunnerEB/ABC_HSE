@@ -16,10 +16,10 @@
 
 	sumOver:
         mv t5 a0
-        print_str ("Произошло переполнение!\nСумма = ")
+        print_str ("\nРџРѕСЃР»РµРґРЅСЏСЏ РєРѕСЂСЂРµРєС‚РЅР°СЏ СЃСѓРјРјР° = ")
         print_int (t5)
         
-        print_str ("\nКол-во просуммированных элементов = ")
+        print_str ("\nРљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕСЃСѓРјРјРёСЂРѕРІР°РЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ = ")
         print_int (a1)
         exit
 .end_macro
@@ -50,11 +50,22 @@ str:
    ecall
 .end_macro
 
-.macro callFillArray
+.macro callFillArray (%array)
+   la      t0 %array        	# РЈРєР°Р·Р°С‚РµР»СЊ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°
    jal fillArray
 .end_macro
 
-.macro callCalculateSum
+.macro callCalculateSum (%array)
+   la      t0 %array
    jal calculateSum
 .end_macro
 
+.macro push(%x)
+	addi	sp, sp, -4
+	sw	%x, (sp)
+.end_macro
+
+.macro pop(%x)
+	lw	%x, (sp)
+	addi	sp, sp, 4
+.end_macro
