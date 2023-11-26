@@ -1,0 +1,6 @@
+You may have heard criticism that the university does not reflect the real world.
+In higher education, programming is being touted as a really cool subject with a lot of practical projects. The experience of building something from scratch, as simple as it is, is truly fun. Students compete to create the fastest robots, smartest autonomous vehicles, and the most inventive machine learning apps.
+Please note that these projects are entirely created by the students themselves. They plan and decide how to implement them from start to finish. Here, as they say, there are no real customers.
+And here is real life. In the professional world, what you do is dictated by your supervisor to the last line of code. The requirements are specific enough to get rid of any creative freedom.
+Your job is not to ask questions, discuss or innovate. Your job is to write the code as required. This feature was chosen by someone you don’t even know.
+You will soon realize that the very reason why you got carried away with programming is gone. You’re just here to translate someone’s ideas into code. Rarely are you treated like a person with your own opinions and ideas.
