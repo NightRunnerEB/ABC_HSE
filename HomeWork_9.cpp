@@ -17,7 +17,7 @@ void *Producer(void* param) {
     int time = 1 + rand()%7;
     sleep(time);
     int data;
-    data = rand()% 21;
+    data = 1 + rand()%20;
     pthread_mutex_lock(&mutex);
     queue.push(data);
     counter++;
@@ -33,7 +33,7 @@ void *Sumer(void* param) {
     int count = *((int*)param);
     int current_index = sum_index++;
     printf("Summer %d created!\n", current_index) ;
-    int time_sum = 3 + rand() % 3;
+    int time_sum = 3 + rand() % 4;
     int sum = 0;
     sleep(time_sum);
     pthread_mutex_lock(&mutex) ;
