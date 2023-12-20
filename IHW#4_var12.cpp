@@ -93,11 +93,7 @@ void *Buyer(void* number) {
     }
 }
 
-int main(int argc) {
-   // получаем из командной строки
-    queueSize = argc;
-    // вывод максимального размера очереди
-    std::cout << "The maximum queue size is " << queueSize;
+int main() {
     int timeNewBuyer;
     pthread_t cashier1;
     pthread_t cashier2;
@@ -108,6 +104,11 @@ int main(int argc) {
     pthread_mutex_init(&mutex2, nullptr);
     pthread_cond_init(&cond1, nullptr);
     pthread_cond_init(&cond2, nullptr);
+
+    // ввод максимального размера очереди
+    std::cout << "Enter the maximum queue size: ";
+    std::cin >> queueSize;
+    std::cout << std::endl;
 
     // "открываем" кассы
     pthread_create(&cashier1, nullptr, &Cashier1, nullptr);
