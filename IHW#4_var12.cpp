@@ -7,16 +7,16 @@
 
 pthread_cond_t cond1; // условная переменная
 pthread_cond_t cond2; // условная переменная
-pthread_mutex_t mutex;
+pthread_mutex_t mutex;  // общий мьютекс
 pthread_mutex_t mutex1; // мьютекс для условных переменных
 pthread_mutex_t mutex2; // мьютекс для условных переменных
 std::queue<std::pair<pthread_t, int>> queue1; // очередь первой кассы
 std::queue<std::pair<pthread_t, int>> queue2; // очередь второй кассы
-static int queueSize;
-static int buyerNum = 1;
+static int queueSize;    // максимальный размер очереди
+static int buyerNum = 1; // номер клиента
 
 //стартовая функция потоков – покупателей
-void *Buyer(void* number) {
+void *Buyer(void* args) {
     int whichQueue = rand() % 2;
     pthread_mutex_lock(&mutex);
     int bNum = buyerNum;
